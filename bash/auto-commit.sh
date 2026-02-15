@@ -3,12 +3,13 @@
 # Auto-commit: AI-generated conventional commit messages via Claude Haiku
 # Usage: stage files with `git add`, then run `auto-commit`
 # Requires: AUTO_COMMIT_OPENAI_API_KEY (or OPENROUTER_API_KEY), jq, curl
-# Optional: AUTO_COMMIT_OPENAI_BASEURL (default: OpenRouter), AUTO_COMMIT_MODEL, AUTO_COMMIT_INSTRUCTIONS
+# Optional: AUTO_COMMIT_OPENAI_BASEURL (default: OpenRouter), AUTO_COMMIT_MODEL, AUTO_COMMIT_MAX_TOKENS, AUTO_COMMIT_INSTRUCTIONS
 auto-commit() {
 	# Configuration
 	local api_key="${AUTO_COMMIT_OPENAI_API_KEY:-$OPENROUTER_API_KEY}"
 	local base_url="${AUTO_COMMIT_OPENAI_BASEURL:-https://openrouter.ai/api/v1}"
 	local model="${AUTO_COMMIT_MODEL:-anthropic/claude-3.5-haiku}"
+	local max_tokens="${AUTO_COMMIT_MAX_TOKENS:-300}"
 	local instructions="${AUTO_COMMIT_INSTRUCTIONS:-}"
 
 	# Check prerequisites
@@ -56,10 +57,10 @@ ${full_diff}"
 		-H "Authorization: Bearer $api_key" \
 		-H "Content-Type: application/json" \
 		-H "X-Title: AutoCommit CLI" \
-		-d "$(jq -n --arg prompt "$prompt" --arg model "$model" '{
+		-d "$(jq -n --arg prompt "$prompt" --arg model "$model" --argjson max_tokens "$max_tokens" '{
             "model": $model,
             "messages": [{"role": "user", "content": $prompt}],
-            "max_tokens": 300,
+            "max_tokens": $max_tokens,
             "temperature": 0.3
         }')" 2>/dev/null)
 

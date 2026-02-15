@@ -31,6 +31,7 @@ The `auto-commit` script can be customized via environment variables in your `.z
 - `AUTO_COMMIT_OPENAI_API_KEY`: Your API key (OpenRouter or OpenAI-compatible). Fallback: `OPENROUTER_API_KEY`.
 - `AUTO_COMMIT_OPENAI_BASEURL`: The API base URL. Defaults to `https://openrouter.ai/api/v1`.
 - `AUTO_COMMIT_MODEL`: The model name to use. Defaults to `anthropic/claude-3.5-haiku`.
+- `AUTO_COMMIT_MAX_TOKENS`: Maximum tokens for the response. Defaults to `300`.
 - `AUTO_COMMIT_INSTRUCTIONS`: Extra instructions for the AI (e.g., "Always include JIRA ticket JIRA-123").
 
 **Example:**
