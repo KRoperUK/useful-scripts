@@ -78,7 +78,7 @@ If `release-please` fails to parse a commit (e.g., `Error: unexpected token...`)
 
 ## Development
 
-This repository uses `pre-commit` to ensure code quality.
+This repository uses `pre-commit` to ensure code quality. For more details on our release process and how to contribute, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 To set up the pre-commit hooks locally:
 
