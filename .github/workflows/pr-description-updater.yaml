@@ -24,7 +24,7 @@ jobs:
                   BODY=$(gh pr view $PR_NUMBER --json body -q .body)
 
                   # Replace BRANCH_NAME placeholder with actual branch name
-                  NEW_BODY=$(echo "$BODY" | sed "s/BRANCH_NAME/$BRANCH_NAME/g")
+                  NEW_BODY=$(echo "$BODY" | sed "s|BRANCH_NAME|$BRANCH_NAME|g")
 
                   # Only update if there was a change
                   if [ "$BODY" != "$NEW_BODY" ]; then
