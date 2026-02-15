@@ -8,6 +8,8 @@ repos:
       - id: check-added-large-files
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
+      - id: no-commit-to-branch
+        args: [--branch, main]
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.6
