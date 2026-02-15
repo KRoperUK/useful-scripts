@@ -55,11 +55,38 @@ export AUTO_COMMIT_INSTRUCTIONS="Include JIRA-123 in the scope if relevant"
 
 If you prefer not to clone the repository, you can copy the content of a script (e.g., `bash/auto-commit.sh`) and paste it directly into your `~/.zshrc` file.
 
+## CI/CD & Releases
+
+This project uses **release-please** to automate versioning and changelogs.
+
+- **Automated Releases**: When you merge a PR with conventional commit messages to `main`, a "Release PR" will be automatically created/updated. Merging that PR will create a new GitHub release and tag.
+- **Conventional Commits**: Ensure your PR titles or commit messages follow the [Conventional Commits](https://www.conventionalcommits.org/) format (e.g., `feat: message`, `fix: message`).
+
+### Troubleshooting `release-please`
+
+If `release-please` fails to parse a commit (e.g., `Error: unexpected token...`), it won't trigger a new release.
+
+**Fix**:
+1. Check your PR titles on GitHub. If they look like `Feat/branch-name`, they will fail.
+2. To "kick" the release process, you can push an empty commit with a correct message:
+   ```bash
+   git commit --allow-empty -m "chore: trigger release"
+   git push
+   ```
+
+**Pro Tip**: Always use **Squash and Merge** on GitHub and ensure the PR title follows `feat: ...` or `fix: ...` format.
+
 ## Development
 
-This repository uses `pre-commit` to ensure code quality, including checking for trailing whitespace, YAML validation, and shell script analysis with `shellcheck` and `shfmt`.
+This repository uses `pre-commit` to ensure code quality. For more details on our release process and how to contribute, see [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 To set up the pre-commit hooks locally:
 
 1.  Install pre-commit (e.g., via pip or brew).
 2.  Run `pre-commit install` in the repository root.
+
+The hooks include:
+- `trailing-whitespace`, `end-of-file-fixer`, `check-yaml`, `check-added-large-files`
+- `no-commit-to-branch` (prevents direct commits to `main`)
+- `conventional-pre-commit` (enforces conventional commit messages)
+- `shellcheck` and `shfmt` (for shell scripts)

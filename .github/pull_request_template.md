@@ -3,6 +3,9 @@
 
 ## Description
 
+> [!IMPORTANT]
+> **Pull Request Title**: Must follow [Conventional Commits](https://www.conventionalcommits.org/) (e.g., `feat: add new script`).
+
 Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context.
 
 ## Type of change
