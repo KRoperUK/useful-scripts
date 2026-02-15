@@ -1,0 +1,22 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:recommended",
+        ":separateMajorReleases",
+        ":combinePatchMinorReleases",
+        "group:monorepos"
+    ],
+    "pre-commit": {
+        "enabled": true
+    },
+    "packageRules": [
+        {
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "groupName": "non-major dependencies",
+            "automerge": false
+        }
+    ]
+}

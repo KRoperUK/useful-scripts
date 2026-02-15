@@ -1,0 +1,23 @@
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    contents: write
+    pull-requests: write
+
+name: release-please
+
+jobs:
+    release-please:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: googleapis/release-please-action@v4.4.0
+              with:
+                  # using a built-in token to authenticate
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  # this assumes that you have created a release-please-config.json
+                  # and a .release-please-manifest.json in the root of your repo.
+                  config-file: release-please-config.json
+                  manifest-file: .release-please-manifest.json
