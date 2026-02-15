@@ -1,6 +1,5 @@
-[![Lint](https://github.com/KRoperUK/useful-scripts/actions/workflows/lint.yaml/badge.svg)](https://github.com/KRoperUK/useful-scripts/actions/workflows/lint.yaml)
-[![release-please](https://github.com/KRoperUK/useful-scripts/actions/workflows/release.yaml/badge.svg)](https://github.com/KRoperUK/useful-scripts/actions/workflows/release.yaml)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/KRoperUK/useful-scripts)](https://github.com/KRoperUK/useful-scripts/releases)
+[![Lint](https://github.com/KRoperUK/useful-scripts/actions/workflows/lint.yaml/badge.svg?branch=BRANCH_NAME)](https://github.com/KRoperUK/useful-scripts/actions/workflows/lint.yaml?query=branch%3ABRANCH_NAME)
+[![release-please](https://github.com/KRoperUK/useful-scripts/actions/workflows/release.yaml/badge.svg?branch=BRANCH_NAME)](https://github.com/KRoperUK/useful-scripts/actions/workflows/release.yaml?query=branch%3ABRANCH_NAME)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
 
 ## Description

@@ -1,0 +1,32 @@
+name: Update PR Badges
+
+on:
+    pull_request:
+        types: [opened, synchronize, reopened]
+
+permissions:
+    pull-requests: write
+
+jobs:
+    update-badges:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Update PR Description
+              env:
+                  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  PR_NUMBER: ${{ github.event.pull_request.number }}
+                  BRANCH_NAME: ${{ github.head_ref }}
+              run: |
+                  # Fetch the current PR body
+                  BODY=$(gh pr view $PR_NUMBER --json body -q .body)
+
+                  # Replace BRANCH_NAME placeholder with actual branch name
+                  NEW_BODY=$(echo "$BODY" | sed "s|BRANCH_NAME|$BRANCH_NAME|g")
+
+                  # Only update if there was a change
+                  if [ "$BODY" != "$NEW_BODY" ]; then
+                    gh pr edit $PR_NUMBER --body "$NEW_BODY"
+                  fi
