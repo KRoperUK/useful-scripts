@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/KRoperUK/useful-scripts/compare/v1.1.0...v1.2.0) (2026-02-15)
+
+
+### Features
+
+* remove version file ([#8](https://github.com/KRoperUK/useful-scripts/issues/8)) ([491dd88](https://github.com/KRoperUK/useful-scripts/commit/491dd88f13f50fd59a65e4ccd94e984c21df9606))
+
 ## [1.1.0](https://github.com/KRoperUK/useful-scripts/compare/v1.0.0...v1.1.0) (2026-02-15)
 
 
