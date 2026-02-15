@@ -19,13 +19,18 @@ You can add these scripts to your shell configuration (e.g., `.zshrc`) in a few 
     git clone https://github.com/KRoperUK/useful-scripts.git ~/gitProjects/useful-scripts
     ```
 
-2.  Add the script to your `~/.zshrc` by sourcing it:
+2.  (Recommended) Switch to the latest stable release:
+    ```bash
+    cd ~/gitProjects/useful-scripts && git checkout $(git describe --tags --abbrev=0)
+    ```
+
+3.  Add the script to your `~/.zshrc` by sourcing it:
     ```bash
     # Source the auto-commit script
     source ~/gitProjects/useful-scripts/bash/auto-commit.sh
     ```
 
-3.  Reload your shell configuration:
+4.  Reload your shell configuration:
     ```bash
     source ~/.zshrc
     ```
